@@ -36,15 +36,58 @@ def mySum(param1, param2):
 
 print('sumTest=', mySum(1,2))
 
+'''Exercices'''
+
 def average_above_zero(table):
     ##
-    #Function that defines the average value of the table
+    #Function that defines and return the average value of the list
+    #Args : a list of values
+    #Returns : the average of positives values
+    #Raises ValueError if input param is not a list
+    if not(isinstance(table, list)):
+        raise ValueError('average_above_zero, expected a list as input')
+    if len(table)==0:
+        raise ValueError('expected a non empty list as input')
+    if not(isinstance(table[0], (int, float))):
+        raise ValueError('average_above_zero, expected a list of numbers')
     som = 0
     n = 0
     for id in range(len(table)):
         if table[id] > 0 :
             som = som + table[id]
             n = n + 1
-    moy = som/n
-    return moy
+    if n == 0:
+        raise ValueError('Division by 0')    
+    return som / n
 print('Moyenne = ', average_above_zero(tab_list))
+
+'''
+max <- 0
+for i <- 1 to NMAX do
+    if Tab[i] > Max then
+        Max <- Tab[i]
+        IndexMax <- i
+Display(Max, i)
+'''
+
+def function_max_value(table):
+    ##
+    #Function that finds and return the maximum value of the list
+    #Args : a list of values
+    #Returns : the maximum value of the list
+    #Raises ValueError
+    if not(isinstance(table, list)):
+        raise ValueError('function_max_value, expected a list as input')
+    if len(table)==0:
+        raise ValueError('expected a non empty list as input')
+    if not(isinstance(table[0], (int, float))):
+        raise ValueError('function_max_value, expected a list of numbers')
+    max_value = 0
+    max_index = 0
+    for id in range(len(table)):
+        if table[id] > max_value :
+            max_value = table[id]
+            max_index = id
+    return (max_value, max_index)
+print('Valeur max = ', function_max_value(tab_list))
+                
