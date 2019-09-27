@@ -62,6 +62,8 @@ def average_above_zero(table):
 print('Moyenne = ', average_above_zero(tab_list))
 
 '''
+MAX VALUE 
+
 max <- 0
 for i <- 1 to NMAX do
     if Tab[i] > Max then
@@ -90,4 +92,35 @@ def function_max_value(table):
             max_index = id
     return (max_value, max_index)
 print('Valeur max = ', function_max_value(tab_list))
-                
+
+'''
+REVERSE TABLE
+
+size <- NMAX
+index <- size - 1
+iterations <- size / 2
+for i <- 1 to NMAX do
+    Temp <- Tab[index]
+    Tab[index] <- Tab[i]
+    Tab[i] <- Temp
+    Index <- Index - 1
+Display(Tab)
+'''
+
+def function_reverse_table(table):
+    ##
+    #Function that reverses the array
+    #Args : a table
+    #Returns : the reversed table
+    size = len(table)
+    index = size - 1
+    its = size // 2
+    for i in range(its):
+        temp = table[index]
+        table[index] = table[i]
+        table[i] = temp
+        index -= 1
+print ('Liste ', tab_list)
+function_reverse_table(tab_list)
+print ('Liste inversée ',tab_list)
+    
