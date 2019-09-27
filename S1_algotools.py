@@ -124,3 +124,28 @@ print ('Liste ', tab_list)
 function_reverse_table(tab_list)
 print ('Liste inversée ',tab_list)
     
+'''
+Bounding box
+for i <- 1 to NMAX do
+    for i <- 
+        for j <- 
+        
+'''
+
+import numpy as np
+matrix = np.zeros((10,10), dtype=np.int32)
+
+matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
+
+import cv2
+img=cv2.imread('Image.png', 0)
+cv2.imshow('read image', img)
+cv2.waitKey()
+
+for idrow in range(matrix.shape[0]):
+    for idcol in range(matrix.shape[1]):
+        pixVal=matrix[idrow, idcol]
+        
+#x,y,w,h = cv2.boundingRect(cnt) for x,y top-left coordinates and w,h bottom-right coordinates
+#img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+            
