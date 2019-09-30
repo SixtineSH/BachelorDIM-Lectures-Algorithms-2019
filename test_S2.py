@@ -8,15 +8,21 @@ Created on Mon Sep 30 09:11:05 2019
 import S1_algotools_mien as tobetested
 import pytest
 
-
 def test_average_above_zero_working1():
     tab_list=[1,2,3,4,-5,6,-9]
-    test, lasID=tobetested.average_above_zero(tab_list)
+    test=tobetested.average_above_zero(tab_list)
     assert test==3
 
-def test_average_above_zero_table():
-    tab_list=[1,2,3,4,-5,6,-9]
+'''def test_average_above_zero_table():
+    tab_list=[1,2,3,4,-5,6,-9]'''
 
-def test_average_above_zero_dividebyzero():
+def test_average_above_zero_dividedbyzero():
+    tab_list=[-1, -2, -3, -4, -5, -6, -9]
     with pytest.raises(ZeroDivisionError):
-        test, lastID=tobetested.average_above_zero(tab_list)
+        tobetested.average_above_zero(tab_list)
+        
+'''def test_numbers_under_zero():
+    tab_list=[-1, -2, -3, -4, -5, -6, -9]
+    tobetested.average_above_zero(tab_list)
+    with pytest.raises(ZeroDivisionError):
+        1/0'''
