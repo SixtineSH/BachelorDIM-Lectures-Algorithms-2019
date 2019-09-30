@@ -9,7 +9,7 @@ import S1_algotools_mien as tobetested
 import pytest
 
 def test_average_above_zero_working1():
-    tab_list=[1,2,3,4,-5,6,-9]
+    tab_list=[1,2,3,-5,6,-9]
     test=tobetested.average_above_zero(tab_list)
     assert test==3
 
@@ -17,7 +17,7 @@ def test_average_above_zero_working1():
     tab_list=[1,2,3,4,-5,6,-9]'''
 
 def test_average_above_zero_dividedbyzero():
-    tab_list=[-1, -2, -3, -4, -5, -6, -9]
+    tab_list=[-1, -2, -3, -5, -6, -9]
     with pytest.raises(ZeroDivisionError):
         tobetested.average_above_zero(tab_list)
         
