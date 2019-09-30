@@ -1,0 +1,153 @@
+[1mdiff --cc S1_algotools.py[m
+[1mindex edd4ea0,65133c3..0000000[m
+[1m--- a/S1_algotools.py[m
+[1m+++ b/S1_algotools.py[m
+[36m@@@ -1,93 -1,27 +1,126 @@@[m
+[31m -#!/usr/bin/env python3[m
+  # -*- coding: utf-8 -*-[m
+  """[m
+[31m -Created on Thu Sep 26 14:17:01 2019[m
+[32m +Created on Thu Sep 26 14:17:13 2019[m
+  [m
+[31m -@author: alben[m
+[32m +@author: schuhles[m
+  """[m
+  [m
+[31m -#############################[m
+[31m -# Assignement 1:[m
+[31m -# average of only the positive table values[m
+[31m -#.... this is an ugly code[m
+[31m -# FIXME : find out error cases[m
+[31m -def average_above_zero(tab):[m
+[31m -    pos_val_sum=0[m
+[31m -    nElem=0[m
+[31m -    for id in range(len(tab)):[m
+[31m -        if tab[id] >0:[m
+[31m -            nElem+=1[m
+[31m -            pos_val_sum+=tab[id][m
+[31m -            lastID=id[m
+[31m -    return pos_val_sum/nElem, lastID           [m
+[32m +'''If Som isn't initialized, his value might be randomize depending on the language'''[m
+[32m +[m
+[32m +'''If all the values are below 0, the divider will b equal to 0, programms don't work well with it'''[m
+[32m +[m
+[32m +tab_list=[1,2,3,4,5,6,-9][m
+[32m +[m
+[32m +import numpy as np[m
+[32m +tab_zeros= np.zeros(12, dtype=np.int32)[m
+[32m +tab_from_list=np.array(tab_list)[m
+[32m +[m
+[32m +for id in range(len(tab_from_list)):[m
+[32m +    print('tab['+str(id)+']='+str(tab_from_list[id]))[m
+[32m +    print('tab[{index}]={val}'.format(index=id, val=tab_from_list[id]))[m
+      [m
+[31m -#test section[m
+[31m -tab_list=[1,2,3,-4,6,-9][m
+[31m -test, lastID=average_above_zero(tab_list)[m
+[31m -print('test_sum=',test)[m
+[32m +    if tab_from_list[id]>0:[m
+[32m +        print('Youpi')[m
+[32m +[m
+[32m +print('Finished')[m
+[32m +[m
+[32m +def mySum(param1, param2):[m
+[32m +    '''[m
+[32m +    Function that sums the two input params[m
+[32m +    Ars:[m
+[32m +        param1: an int value[m
+[32m +        param2: an int value[m
+[32m +    Returns the sum[m
+[32m +    '''[m
+[32m +    return param1+param2[m
+[32m +[m
+[32m +print('sumTest=', mySum(1,2))[m
+[32m +[m
+[32m +'''Exercices'''[m
+[32m +[m
+[32m +def average_above_zero(table):[m
+[32m +    ##[m
+[32m +    #Function that defines and return the average value of the list[m
+[32m +    #Args : a list of values[m
+[32m +    #Returns : the average of positives values[m
+[32m +    #Raises ValueError if input param is not a list[m
+[32m +    if not(isinstance(table, list)):[m
+[32m +        raise ValueError('average_above_zero, expected a list as input')[m
+[32m +    if len(table)==0:[m
+[32m +        raise ValueError('expected a non empty list as input')[m
+[32m +    if not(isinstance(table[0], (int, float))):[m
+[32m +        raise ValueError('average_above_zero, expected a list of numbers')[m
+[32m +    som = 0[m
+[32m +    n = 0[m
+[32m +    for id in range(len(table)):[m
+[32m +        if table[id] > 0 :[m
+[32m +            som = som + table[id][m
+[32m +            n = n + 1[m
+[32m +    if n == 0:[m
+[32m +        raise ValueError('Division by 0')    [m
+[32m +    return som / n[m
+[32m +print('Moyenne = ', average_above_zero(tab_list))[m
+[32m +[m
+[32m +'''[m
+[32m++MAX VALUE [m
+[32m++[m
+[32m +max <- 0[m
+[32m +for i <- 1 to NMAX do[m
+[32m +    if Tab[i] > Max then[m
+[32m +        Max <- Tab[i][m
+[32m +        IndexMax <- i[m
+[32m +Display(Max, i)[m
+[32m +'''[m
+[32m +[m
+[32m +def function_max_value(table):[m
+[32m +    ##[m
+[32m +    #Function that finds and return the maximum value of the list[m
+[32m +    #Args : a list of values[m
+[32m +    #Returns : the maximum value of the list[m
+[32m +    #Raises ValueError[m
+[32m +    if not(isinstance(table, list)):[m
+[32m +        raise ValueError('function_max_value, expected a list as input')[m
+[32m +    if len(table)==0:[m
+[32m +        raise ValueError('expected a non empty list as input')[m
+[32m +    if not(isinstance(table[0], (int, float))):[m
+[32m +        raise ValueError('function_max_value, expected a list of numbers')[m
+[32m +    max_value = 0[m
+[32m +    max_index = 0[m
+[32m +    for id in range(len(table)):[m
+[32m +        if table[id] > max_value :[m
+[32m +            max_value = table[id][m
+[32m +            max_index = id[m
+[32m +    return (max_value, max_index)[m
+[32m +print('Valeur max = ', function_max_value(tab_list))[m
+[31m-                 [m
+[32m++[m
+[32m++'''[m
+[32m++REVERSE TABLE[m
+[32m++[m
+[32m++size <- NMAX[m
+[32m++index <- size - 1[m
+[32m++iterations <- size / 2[m
+[32m++for i <- 1 to NMAX do[m
+[32m++    Temp <- Tab[index][m
+[32m++    Tab[index] <- Tab[i][m
+[32m++    Tab[i] <- Temp[m
+[32m++    Index <- Index - 1[m
+[32m++Display(Tab)[m
+[32m++'''[m
+[32m++[m
+[32m++def function_reverse_table(table):[m
+[32m++    ##[m
+[32m++    #Function that reverses the array[m
+[32m++    #Args : a table[m
+[32m++    #Returns : the reversed table[m
+[32m++    size = len(table)[m
+[32m++    index = size - 1[m
+[32m++    its = size // 2[m
+[32m++    for i in range(its):[m
+[32m++        temp = table[index][m
+[32m++        table[index] = table[i][m
+[32m++        table[i] = temp[m
+[32m++        index -= 1[m
+[32m++print ('Liste ', tab_list)[m
+[32m++function_reverse_table(tab_list)[m
+[32m++print ('Liste inversée ',tab_list)[m
+[32m++    [m
