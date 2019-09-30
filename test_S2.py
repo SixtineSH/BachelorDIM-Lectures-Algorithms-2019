@@ -13,8 +13,10 @@ def test_average_above_zero_working1():
     test=tobetested.average_above_zero(tab_list)
     assert test==3
 
-'''def test_average_above_zero_table():
-    tab_list=[1,2,3,4,-5,6,-9]'''
+def test_average_above_zero_empty_table():
+    tab_list=[]
+    with pytest.raises(ValueError):
+        tobetested.average_above_zero(tab_list)
 
 def test_average_above_zero_dividedbyzero():
     tab_list=[-1, -2, -3, -5, -6, -9]
