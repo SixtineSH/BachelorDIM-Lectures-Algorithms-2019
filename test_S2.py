@@ -18,7 +18,7 @@ def test_average_above_zero_working1():
 
 def test_average_above_zero_dividedbyzero():
     tab_list=[-1, -2, -3, -5, -6, -9]
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ValueError):
         tobetested.average_above_zero(tab_list)
         
 '''def test_numbers_under_zero():
