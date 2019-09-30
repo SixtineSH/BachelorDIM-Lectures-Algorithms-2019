@@ -18,7 +18,7 @@ cv2.imshow("Gray levels image", img_gray)
 cv2.imshow("BGR image", img_bgr)
 cv2.waitKey()'''
 
-img=cv2.imread('rick.jpg')
+img=cv2.imread('surf.png')
 
 cv2.imshow('input', img)
 cv2.waitKey()
