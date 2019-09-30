@@ -9,7 +9,7 @@ Created on Thu Sep 26 14:17:13 2019
 
 '''If all the values are below 0, the divider will b equal to 0, programms don't work well with it'''
 
-tab_list=[1,2,3,4,5,6,-9]
+tab_list=[1,2,3,-5,6,-9]
 
 import numpy as np
 tab_zeros= np.zeros(12, dtype=np.int32)

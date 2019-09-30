@@ -23,12 +23,12 @@ def test_average_above_zero_dividedbyzero():
     with pytest.raises(ValueError):
         tobetested.average_above_zero(tab_list)
         
-'''def test_numbers_under_zero():
-    tab_list=[-1, -2, -3, -4, -5, -6, -9]
+def test_average_above_zero_no_list():
+    tab_list=12
     with pytest.raises(ValueError):
-        tobetested.average_above_zero(tab_list)'''
+        tobetested.average_above_zero(tab_list)
         
-def test_non_numbers():
+def test_average_above_zero_non_numbers():
     tab_list=['a', 'ef', 'dzv', 'cdz', 'dc']
     with pytest.raises(ValueError):
         tobetested.average_above_zero(tab_list)
