@@ -19,4 +19,4 @@ def test_average_above_zero_table():
 
 def test_average_above_zero_dividebyzero():
     with pytest.raises(ZeroDivisionError):
-        1/0
+        test, lastID=tobetested.average_above_zero(tab_list)
