@@ -5,7 +5,7 @@ Created on Mon Sep 30 09:11:05 2019
 @author: schuhles
 """
 
-import S1_algotools_mien as tobetested
+import S1_algotools as tobetested
 import pytest
 
 def test_averageAboveZero_working1():

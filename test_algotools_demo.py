@@ -5,7 +5,7 @@ Created on Sun Sep 29 21:44:54 2019
 
 @author: alben
 """
-<<<<<<< HEAD
+
 
 '''import pytest
 =======
@@ -36,6 +36,3 @@ def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
 <<<<<<< HEAD
         1/0'''
-=======
-        1/0
->>>>>>> f3288d7d1ac76c4fa8883fd50eb79ef6c2f5ecb6
