@@ -25,6 +25,10 @@ def test_average_above_zero_dividedbyzero():
         
 '''def test_numbers_under_zero():
     tab_list=[-1, -2, -3, -4, -5, -6, -9]
-    tobetested.average_above_zero(tab_list)
-    with pytest.raises(ZeroDivisionError):
-        1/0'''
+    with pytest.raises(ValueError):
+        tobetested.average_above_zero(tab_list)'''
+        
+def test_non_numbers():
+    tab_list=['a', 'ef', 'dzv', 'cdz', 'dc']
+    with pytest.raises(ValueError):
+        tobetested.average_above_zero(tab_list)
