@@ -16,10 +16,10 @@ params.socket_timeout = 5
 
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
-channel.queue_declare(queue='prez') #name presentation didn't work
+channel.queue_declare(queue='presentation')
 
 channel.basic_publish(exchange='',
-    routing_key='prez',
+    routing_key='presentation',
     body='Sixtine Schuhler-Husson')
                           
 print(" [x] Sent 'Sixtine Schuhler-Husson'")

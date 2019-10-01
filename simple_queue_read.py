@@ -16,12 +16,12 @@ params.socket_timeout = 5
 
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
-channel.queue_declare(queue='prez') #name presentation didn't work
+channel.queue_declare(queue='presentation')
 
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
 
-channel.basic_consume(queue='prez',
+channel.basic_consume(queue='presentation',
      on_message_callback=callback,                          
      auto_ack=True)
     
