@@ -10,7 +10,7 @@ import os
 import pika
 
 
-mode='_SEND' #set 'SEND' mode is you will to send rather than receive messages
+mode='SEND' #set 'SEND' mode is you will to send rather than receive messages
 
 
 def callback(ch, method, properties, body):
