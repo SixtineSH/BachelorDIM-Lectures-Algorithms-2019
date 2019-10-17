@@ -3,6 +3,8 @@ sonar.organization=sixtinesh
 
 # this is the name and version displayed in the SonarCloud UI.
 sonar.projectName=BachelorDIM-Lectures-Algorithms-2019
+sonar.organization=SixtinSH-github
+sonar.projectName=DIMbachelor_Algo_SixtineSH
 sonar.projectVersion=1.0
  
 # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
