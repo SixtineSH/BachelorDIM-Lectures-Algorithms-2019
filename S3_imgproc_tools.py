@@ -28,7 +28,27 @@ cv2.waitKey()
         for cha in range(img.shape[2]):
             img[row, col, cha] = 255-img[row, col,cha]'''
 
-img=255-img
+
+def invert_colors_manual(img):
+    ##
+    #Function that inverts the colors of the image
+    #Args: an image
+    #Returns the image with inverted colors
+    return 255-img
             
-cv2.imshow('inverted input', img)
-cv2.waitKey()
+'''cv2.imshow('inverted input', img)
+cv2.waitKey()'''
+
+def invert_colors_numpy(img):
+    ##
+    #Function that inverts the colors of the image
+    #Args: an image
+    #Returns the image with inverted colors
+    return np.invert(img)
+
+def invert_colors_opencv(img):
+    ##
+    #Function that inverts the colors of the image
+    #Args: an image
+    #Returns the image with inverted colors
+    return cv2.bitwise_not(img)

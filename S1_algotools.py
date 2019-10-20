@@ -113,9 +113,48 @@ def function_reverse_table(table):
 '''
 BOUNDING BOX
 
-Bounding box
-for i <- 1 to NMAX do
-    for i <- 
-        for j <- 
+
         
 '''
+import numpy as np
+
+def function_roi_bbox(input_image):
+    ##
+    #Function that returns the bounding box of an image
+    #Args:a numpy array
+    #Returns the bounding box's table
+    #Raises ValueError if the input is not a numpy array and if the array is empty
+    if not(isinstance(input_image, np.ndarray)):
+        raise ValueError('function_roi_bbox, expected a numpy array as input')
+    if len(input_image)==0:
+        raise ValueError('function_roi_bbox, expected a non empty array as input')
+       
+    
+    minCol = input_image[1]
+    minRow = input_image[0]
+    maxCol = 0
+    maxRow = 0
+    
+    for idRow in range(input_image[0]):
+        for idCol in range(input_image[1]):
+            pixVal = input_image[idRow, idCol]
+            if pixVal == 255:
+                if idRow > maxRow:
+                    maxRow = idRow
+                if idCol > maxCol:
+                    maxCol = idCol
+                if idRow < minRow:
+                    minRow = idRow
+                if idCol < minCol:
+                    minCol = idCol
+    result = np.array([minCol, minRow], [maxCol, minRow], [minCol, maxRow], [maxCol, maxRow])
+    return result
+    
+    
+    
+    
+    
+    
+    
+    
+    

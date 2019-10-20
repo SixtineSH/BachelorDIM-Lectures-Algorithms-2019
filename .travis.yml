@@ -8,15 +8,10 @@ install:
 addons:
   sonarcloud:
     organization: "sixtinesh"
-    token:
-      secure: "fc506110a39890bb0470a3c2a58d07a5a373dc4c" # encrypted value of your token
+
 # command to run tests
 script:
   - pytest -v --cov .
-<<<<<<< HEAD
   - sonar-scanner
   - coveralls
-=======
-  #- sonar-scanner
-  - coveralls
->>>>>>> 6a34285c95882b7509f8f61d8427653c5b55d703
+
