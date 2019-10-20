@@ -53,3 +53,13 @@ def test_functionMaxValue_non_numbers():
     tab_list=['12', '15', '125', '512', '2048']
     with pytest.raises(ValueError):
         tobetested.function_max_value(tab_list)
+        
+def test_functionReverseTable_empty_table():
+    tab_list=[]
+    with pytest.raises(ValueError):
+        tobetested.function_reverse_table(tab_list)
+        
+def test_functionReverseTable_no_list():
+    tab_list=75
+    with pytest.raises(ValueError):
+        tobetested.function_reverse_table(tab_list)
