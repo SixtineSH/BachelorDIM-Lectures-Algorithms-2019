@@ -1,5 +1,5 @@
+os: windows
 language: python
-dist: trusty
 python:
   - "3.6"
 # command to install dependencies
@@ -7,11 +7,11 @@ install:
   - pip install -r requirements.txt
 addons:
   sonarcloud:
-    organization: "sixtinesh"
+    organization: sixtinesh
 
 # command to run tests
 script:
-  - pytest -v --cov .
+  - pytest -v --cov
   - sonar-scanner
   - coveralls
 
