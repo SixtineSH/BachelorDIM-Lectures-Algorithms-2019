@@ -150,11 +150,77 @@ def function_roi_bbox(input_image):
     result = np.array([minCol, minRow], [maxCol, minRow], [minCol, maxRow], [maxCol, maxRow])
     return result
     
-    
-    
-    
-    
-    
-    
-    
-    
+'''
+RANDOM ARRAY FILLING
+
+
+'''
+
+import random 
+def function_random_fill_sparse(table, k):
+    ##
+    #Function that randomly fills the table by 'x'
+    #Args: a numpy array and the number of 'x'
+    #Returns a numpy array filled with 'x's
+    #Raises ValueError if the input is not a numpy array and if the array is empty
+    if not(isinstance(table, np.ndarray)):
+        raise ValueError('function_random_fill_sparse, expected a numpy array as input')
+    if len(table) == 0:
+        raise ValueError('function_random_fill_sparse, expected a non empty array as input')
+        
+    i=0
+    while i < k:
+        rand_row = random.randint(0,table.shape[0]-1)
+        rand_col = random.randint(0,table.shape[1]-1)
+        if table[rand_row,rand_col] != 'x':
+            table[rand_row,rand_col] = 'x'
+            i += 1
+            
+        return table
+
+'''
+REMOVE WHITESPACE
+
+'''
+
+def function_remove_whitespace(string):
+    ##
+    #Function that removes whitespaces in a string
+    #Args: a string containing the text where to remove whitespace
+    #Returns the string without whitespaces
+    #Raises ValueError if the string is empty
+    if len(string) == 0:
+        raise ValueError('function_remove_whitespace, expected a non empty string as input')
+
+    str = list(string)
+    for i in range(len(str)):
+        if str[i] == ' ':
+            str[i] = ''
+    string = ''.join(str)
+    return string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
