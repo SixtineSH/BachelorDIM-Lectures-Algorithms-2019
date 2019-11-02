@@ -1,0 +1,20 @@
+[
+  "test_S2.py::test_averageAboveZero_working1",
+  "test_S2.py::test_averageAboveZero_empty_table",
+  "test_S2.py::test_averageAboveZero_dividedbyzero",
+  "test_S2.py::test_averageAboveZero_no_list",
+  "test_S2.py::test_averageAboveZero_non_numbers",
+  "test_S2.py::test_functionMaxValue_working1",
+  "test_S2.py::test_functionMaxValue_empty_table",
+  "test_S2.py::test_functionMaxValue_no_list",
+  "test_S2.py::test_functionMaxValue_non_numbers",
+  "test_S2.py::test_functionReverseTable_working",
+  "test_S2.py::test_functionReverseTable_empty_table",
+  "test_S2.py::test_functionReverseTable_no_list",
+  "test_S2.py::test_functionRoiBBox_no_np",
+  "test_S2.py::test_functionRoiBbox_empty_array",
+  "test_S2.py::test_function_random_fill_sparse_no_np",
+  "test_S2.py::test_function_random_fill_sparse_empty_array",
+  "test_S2.py::test_function_remove_whitespace_working",
+  "test_S2.py::test_function_remove_whitespace_empty_string"
+]

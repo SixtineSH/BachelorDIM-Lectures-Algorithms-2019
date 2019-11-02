@@ -8,6 +8,7 @@ Created on Mon Sep 30 15:58:36 2019
 #import urlparse
 import os
 import pika
+import config
 
 
 mode='SEND' #set 'SEND' mode is you will to send rather than receive messages
@@ -18,7 +19,9 @@ def callback(ch, method, properties, body):
 
 
 
-amqp_url='amqp://oyuxrrne:gfgMfJSFtXMWivHwAfRzsKEp-ZAL0dMS@dove.rmq.cloudamqp.com/oyuxrrne'
+amqp_url=config.amqp_url
+
+'amqp://oyuxrrne:gfgMfJSFtXMWivHwAfRzsKEp-ZAL0dMS@dove.rmq.cloudamqp.com/oyuxrrne'
 
 
 # Parse CLODUAMQP_URL (fallback to localhost)

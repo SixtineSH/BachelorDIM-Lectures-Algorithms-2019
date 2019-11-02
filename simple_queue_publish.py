@@ -3,40 +3,50 @@
 Created on Tue Oct  1 08:44:11 2019
 
 @author: schuhles
-"""
+"""  
 
 import os
 import pika
+import config
+import getpass
 
-def simple_queue_publish(concurrency):
-    amqp_url='amqp://oyuxrrne:gfgMfJSFtXMWivHwAfRzsKEp-ZAL0dMS@dove.rmq.cloudamqp.com/oyuxrrne'
-    
+
+def callback(ch, method, properties, body):
+    ##
+    #Function that prints the published message
+    #Args:ch, method, properties, body
+    #Returns nothing
+    print(" [x] Received %r" % body)
+
+
+def simple_queue_publish(concurrency, number = 1):
+    ##
+    #Function that sends a message
+    #Args:concurrency, number
+    #Returns nothing
+
+    amqp_url=config.amqp_url
+
+    # Parse CLODUAMQP_URL (fallback to localhost)
     url = os.environ.get('CLOUDAMQP_URL',amqp_url)
     params = pika.URLParameters(url)
     params.socket_timeout = 5
-    
-    i = 0
-    
-    connection = pika.BlockingConnection(params)
+
+    connection = pika.BlockingConnection(params) # Connect to CloudAMQP
+
+    properties = pika.BasicProperties()
+    if concurrency:
+        properties.delivery_mode = 2
+        print('persitent mode')
+
     channel = connection.channel()
     channel.queue_declare(queue='presentation')
-            
-    if concurrency:
-        while i < 1000:
-               
-            channel.basic_publish(exchange='',
-                                  routing_key='presentation',
-                                  body='Sixtine Schuhler-Husson',
-                                  properties=pika.BasicProperties(
-                                          delivery_mode = 2,))                      
-            print(" [x] Sent 'Sixtine Schuhler-Husson'")
-            i += 1
-        
-    else:
-    
+
+    for i in range(1, number+1):
         channel.basic_publish(exchange='',
                               routing_key='presentation',
-                              body='Sixtine Schuhler-Husson')
-        print(" [x] Sent 'Sixtine Schuhler-Husson'")
-    
+                              body=getpass.getuser(),
+                              properties = properties)                 
+        print(" [{0}] Sent '{1}'".format(i,getpass.getuser()))
+
     connection.close()
